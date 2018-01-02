@@ -24,16 +24,19 @@ Route::get('inicio/{nome?}', function($nome = 'Aluno'){
      */
   })->where('nome', '[A-Za-z]+');
 
-Route::get('sobre', function () {
-    return view('sobre');
-});
+Route::group(['prefix' => 'institucional'], function() {
 
-Route::get('contato', function () {
-    return view('contato');
-});
+    Route::get('sobre', ['as' => 'sobre', function () {
+        return view('sobre');
+    }]);
 
-Route::post('contato', function () {
-    return Request::all();
+    Route::get('contato', ['as' => 'contato', function () {
+        return view('contato');
+    }]);
+
+    Route::post('contato', ['as' =>'contato.send', function () {
+        return Request::all();
+    }]);
 });
 
 
