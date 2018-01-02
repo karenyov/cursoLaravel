@@ -38,10 +38,31 @@
 
     <div class="container">
 
-    <div class="starter-template">
-        <h1>Curso de Laravel do TreinaWeb</h1>
-        <p class="lead">Curso baseado na versão 5.1 do Laravel. Projeto Voluntários.</p>
-    </div>
+      <div>
+        <h1>Entre em contato:</h1>
+        <form action="#" method="POST">
+          
+          <?= csrf_field(); //adicionando token ?>
+          
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" placeholder="Nome">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email">
+          </div>
+          
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea class="form-control" name="mensagem" rows="3"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-default">Enviar</button>
+          
+        </form>
+      </div>
 
     </div><!-- /.container -->
 

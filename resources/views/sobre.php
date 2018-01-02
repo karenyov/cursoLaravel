@@ -38,10 +38,11 @@
 
     <div class="container">
 
-    <div class="starter-template">
-        <h1>Curso de Laravel do TreinaWeb</h1>
-        <p class="lead">Curso baseado na versão 5.1 do Laravel. Projeto Voluntários.</p>
-    </div>
+      <div>
+        <h1>Sobre</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
+          Vestibulum congue sollicitudin sodales. Nullam ultrices efficitur lectus.</p>
+      </div>
 
     </div><!-- /.container -->
 

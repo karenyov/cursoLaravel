@@ -23,3 +23,17 @@ Route::get('inicio/{nome?}', function($nome = 'Aluno'){
      * return view('inicio')->withName($nome);
      */
   })->where('nome', '[A-Za-z]+');
+
+Route::get('sobre', function () {
+    return view('sobre');
+});
+
+Route::get('contato', function () {
+    return view('contato');
+});
+
+Route::post('contato', function () {
+    return Request::all();
+});
+
+
