@@ -22,7 +22,14 @@ Route::get('inicio/{nome?}', function($nome = 'Aluno'){
      * return view('inicio')->with(['nome' => $nome]);
      * return view('inicio')->withName($nome);
      */
-  })->where('nome', '[A-Za-z]+');
+})->where('nome', '[A-Za-z]+');
+
+Route::get('lista', function(){
+
+    $voluntarios = ['João', 'Juca', 'José', 'Joana', 'Jorge',];
+  
+    return view('lista', ['voluntarios' => $voluntarios]);
+});
 
 Route::group(['prefix' => 'institucional'], function() {
 
