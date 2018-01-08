@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('inicio/{nome?}', function($nome = 'Aluno'){
+/*Route::get('inicio/{nome?}', function($nome = 'Aluno'){
     return view('inicio', ['nome' => $nome]);
      /* Variações
      * return view('inicio')->with('nome', $nome);
      * return view('inicio')->with(['nome' => $nome]);
      * return view('inicio')->withName($nome);
-     */
-})->where('nome', '[A-Za-z]+');
+     *
+})->where('nome', '[A-Za-z]+');*/
 
 Route::get('lista', function(){
 
@@ -31,19 +31,14 @@ Route::get('lista', function(){
     return view('lista', ['voluntarios' => $voluntarios]);
 });
 
-Route::group(['prefix' => 'institucional'], function() {
+Route::controller('nome', 'NomeController');
+Route::resource('rest', 'RestfulController');
 
-    Route::get('sobre', ['as' => 'sobre', function () {
-        return view('sobre');
-    }]);
-
-    Route::get('contato', ['as' => 'contato', function () {
-        return view('contato');
-    }]);
-
-    Route::post('contato', ['as' =>'contato.send', function () {
-        return Request::all();
-    }]);
+Route::group(['namespace' => 'Institucional'], function(){
+    Route::controller('institucional', 'InstitucionalController', [
+        'getSobre' => 'sobre',
+        'getContato' => 'contato',
+        'postContato' => 'contato.send'
+    ]);
 });
-
 
