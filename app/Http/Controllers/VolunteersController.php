@@ -19,7 +19,9 @@ class VolunteersController extends Controller
     public function index()
     {
         //
-        return Volunteer::all();
+        $volunteers = Volunteer::all();
+        
+        return view('volunteers.index', compact('volunteers'));
     }
 
     /**
@@ -29,7 +31,7 @@ class VolunteersController extends Controller
      */
     public function create()
     {
-        //
+        return view('volunteers.create');
     }
 
     /**
@@ -40,7 +42,10 @@ class VolunteersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Volunteer::create($request->all());
+
+        return redirect()->route('volunteer.index');
     }
 
     /**
@@ -51,7 +56,9 @@ class VolunteersController extends Controller
      */
     public function show($id)
     {
-        //
+        $volunteer = Volunteer::findOrFail($id);
+
+        return view('volunteers.show', compact('volunteer'));
     }
 
     /**
