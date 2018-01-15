@@ -42,13 +42,6 @@ Route::group(['namespace' => 'Institucional'], function(){
     ]);
 });
 
-Route::get('volunteer', function(){
-    return view('volunteers.form');
-});
-
-Route::post('volunteer', ['as' => 'volunteer.send', function(){
-    return Request::all();
-}]);
-
+Route::resource('volunteer', 'VolunteersController');
 
 
